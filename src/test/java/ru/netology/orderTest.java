@@ -26,7 +26,7 @@ public class orderTest {
         driver = null;
     }
     @Test
-    public void correctInputTestSelenium(){
+    public void correctInputTest(){
         driver.get("http://localhost:9999");
         List<WebElement> results = driver.findElements(By.className("input__control"));
         results.get(0).sendKeys("Аа-бБ вВ");
@@ -34,7 +34,7 @@ public class orderTest {
         driver.findElement(By.className("checkbox")).click();
         driver.findElement(By.className("button")).click();
         String alert = driver.findElement(By.className("paragraph")).getText();
-        assertEquals("Ваша заявкj успешно отправлена! Наш менеджер свяжется с вами в ближайшее время.", alert.trim());
+        assertEquals("Ваша заявка успешно отправлена! Наш менеджер свяжется с вами в ближайшее время.", alert.trim());
     }
 
 }
