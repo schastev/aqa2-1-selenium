@@ -20,8 +20,7 @@ public class orderTest {
     void setUp() {
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--headless");
-        options.addArguments("--no-sandbox");
-        //options.setBinary("./driver/chromedriver-90");
+        //options.addArguments("--no-sandbox");
         driver = new ChromeDriver(options);
     }
 
