@@ -16,8 +16,11 @@ public class orderTest {
         System.setProperty("webdriver.chrome.driver", "./driver/chromedriver");
     }
     @BeforeEach
+
     void setUp() {
+        System.out.println("debug one");
         driver = new ChromeDriver();
+        System.out.println("debug two");
     }
 
     @AfterEach
@@ -27,9 +30,8 @@ public class orderTest {
     }
     @Test
     public void correctInputTest(){
-        System.out.println("debug one");
+
         driver.get("http://localhost:9999");
-        System.out.println("debug two");
         List<WebElement> results = driver.findElements(By.className("input__control"));
         results.get(0).sendKeys("Аа-бБ вВ");
         results.get(1).sendKeys("+00000000000");
