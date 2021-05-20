@@ -19,9 +19,10 @@ public class orderTest {
     @BeforeEach
 
     void setUp() {
-        driver = new ChromeDriver();
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--headless");
+        options.addArguments("--no-sandbox");
+        driver = new ChromeDriver(options);
     }
 
     @AfterEach
@@ -109,10 +110,4 @@ public class orderTest {
                 "Поле обязательно для заполнения", alert);
         assertEquals(1, results.size());
     }
-
-    @Test
-    public void twoIncorrectFieldsSecondTest() {
-
-    }
-
 }
