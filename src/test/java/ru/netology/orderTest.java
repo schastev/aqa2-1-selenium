@@ -4,6 +4,7 @@ import org.junit.jupiter.api.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 
 import java.util.List;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -18,9 +19,9 @@ public class orderTest {
     @BeforeEach
 
     void setUp() {
-        System.out.println("debug one");
         driver = new ChromeDriver();
-        System.out.println("debug two");
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--headless");
     }
 
     @AfterEach
