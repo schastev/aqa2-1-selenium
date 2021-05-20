@@ -14,14 +14,14 @@ public class orderTest {
 
     @BeforeAll
     public static void setUpCommon(){
-        System.setProperty("webdriver.chrome.driver", "./driver/chromedriver");
+        System.setProperty("webdriver.chrome.driver", "./driver/chromedriver-87");
     }
     @BeforeEach
-
     void setUp() {
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--headless");
         options.addArguments("--no-sandbox");
+        options.setBinary("./driver/chromedriver-90");
         driver = new ChromeDriver(options);
     }
 
