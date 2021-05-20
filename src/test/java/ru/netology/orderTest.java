@@ -20,7 +20,6 @@ public class orderTest {
     void setUp() {
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--headless");
-        //options.addArguments("--no-sandbox");
         driver = new ChromeDriver(options);
     }
 
@@ -39,7 +38,7 @@ public class orderTest {
         driver.findElement(By.className("checkbox")).click();
         driver.findElement(By.className("button")).click();
         String alert = driver.findElement(By.className("paragraph")).getText();
-        assertEquals("Ваша заявка успешно отправлена! Наш менеджер свяжется с вами в ближайшее время.", alert.trim());
+        assertEquals("Ваш заявка успешно отправлена! Наш менеджер свяжется с вами в ближайшее время.", alert.trim());
     }
     @Test
     public void emptyNameTest() {
@@ -49,8 +48,7 @@ public class orderTest {
         driver.findElement(By.className("checkbox")).click();
         driver.findElement(By.className("button")).click();
         String alert = driver.findElement(By.className("input_invalid")).getText().trim();
-        WebElement abc = driver.findElement(By.className("input_invalid"));
-        assertEquals("Фамилия и имя\n" +
+        assertEquals("Фамили и имя\n" +
                 "Поле обязательно для заполнения", alert);
     }
 
@@ -63,7 +61,7 @@ public class orderTest {
         driver.findElement(By.className("checkbox")).click();
         driver.findElement(By.className("button")).click();
         String alert = driver.findElement(By.className("input_invalid")).getText().trim();
-        assertEquals("Фамилия и имя\n" +
+        assertEquals("Фамили и имя\n" +
                 "Имя и Фамилия указаные неверно. Допустимы только русские буквы, пробелы и дефисы.", alert);
     }
     @Test
@@ -74,7 +72,7 @@ public class orderTest {
         driver.findElement(By.className("checkbox")).click();
         driver.findElement(By.className("button")).click();
         String alert = driver.findElement(By.className("input_invalid")).getText().trim();
-        assertEquals("Мобильный телефон\n" +
+        assertEquals("обильный телефон\n" +
                 "Поле обязательно для заполнения", alert);
     }
     @Test
@@ -86,7 +84,7 @@ public class orderTest {
         driver.findElement(By.className("checkbox")).click();
         driver.findElement(By.className("button")).click();
         String alert = driver.findElement(By.className("input_invalid")).getText().trim();
-        assertEquals("Мобильный телефон\n" +
+        assertEquals("обильный телефон\n" +
                 "Телефон указан неверно. Должно быть 11 цифр, например, +79012345678.", alert);
     }
     @Test
@@ -97,7 +95,7 @@ public class orderTest {
         results.get(1).sendKeys("+00000000000");
         driver.findElement(By.className("button")).click();
         String alert = driver.findElement(By.className("input_invalid")).getText().trim();
-        assertEquals("Я соглашаюсь с условиями обработки и использования моих персональных данных и разрешаю сделать запрос в бюро кредитных историй", alert);
+        assertEquals(" соглашаюсь с условиями обработки и использования моих персональных данных и разрешаю сделать запрос в бюро кредитных историй", alert);
     }
     @Test
     public void twoIncorrectFieldsFirstTest() {
@@ -105,7 +103,7 @@ public class orderTest {
         driver.findElement(By.className("button")).click();
         String alert = driver.findElement(By.className("input_invalid")).getText().trim();
         List<WebElement> results = driver.findElements(By.className("input_invalid"));
-        assertEquals("Фамилия и имя\n" +
+        assertEquals("амилия и имя\n" +
                 "Поле обязательно для заполнения", alert);
         assertEquals(1, results.size());
     }
